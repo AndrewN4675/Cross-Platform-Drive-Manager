@@ -8,8 +8,8 @@
     Title="Drive_Manager">
 
     <ShellContent
-        Title="Home"
+        Title="Drive Manager" 
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage"   />
 
 </Shell>
