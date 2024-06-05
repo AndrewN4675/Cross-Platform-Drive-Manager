@@ -1,8 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using Drive_Manager.Models;
 using Microcharts;
-using Microcharts.Maui;
-using Microsoft.Maui.Controls;
 using SkiaSharp;
 
 namespace Drive_Manager
@@ -24,7 +22,6 @@ namespace Drive_Manager
             InitializeComponent();
             GetDrives();
             collectionView.ItemsSource = this.drives;
-
             
             float totalFreeSpace = 0.0f;
             if (this.drives != null)
@@ -83,6 +80,18 @@ namespace Drive_Manager
             await Shell.Current.GoToAsync(nameof(DetailPage));
         }
 
-
+        private void detailedViewButtonClicked(char driveLetter)
+        {
+            int index = 0;
+            for(int i = 0; i < this.drives.Count; i++)
+            {
+                if (driveLetter == this.drives[i].Letter)
+                {
+                    index = i;
+                }
+            }
+            Navigation.PushModalAsync(new DetailPage());
+            
+        }
     }
 }

@@ -17,12 +17,12 @@
                     <DataTemplate>
                         <Grid Padding="0,8">
                             <Frame Background="#1F1F1F" HeightRequest="38" Padding="20, 5">
-                                    
+
                                 <Label Text="{Binding ItemLabel}" FontSize="15" TextColor="LightGrey"  FontAttributes="Bold"/>
- 
-                            </Frame>
-                            <Button IsVisible="False"/>
                             
+                            </Frame>
+                            <Button BackgroundColor="#00FFFFFF" BorderColor="Yellow" BorderWidth="1" x:Name="detailViewButton"
+                                    Command="{Binding detailedViewButtonClicked}"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
