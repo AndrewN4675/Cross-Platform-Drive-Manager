@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Drive_Manager.Models;
+using Microsoft.Extensions.Logging;
+using Microcharts.Maui;
 
 namespace Drive_Manager
 {
@@ -9,6 +11,7 @@ namespace Drive_Manager
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMicrocharts()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -18,6 +21,9 @@ namespace Drive_Manager
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+            builder.Services.AddTransient<DetailPage>();
+            builder.Services.AddTransient<DetailModel>();
 
             return builder.Build();
         }

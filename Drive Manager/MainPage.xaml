@@ -1,66 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
              x:Class="Drive_Manager.MainPage"
              Shell.TitleColor="LightGray"
              Shell.BackgroundColor="#1c1c1c">
 
-    <VerticalStackLayout Padding="20, 20" Spacing="10" BackgroundColor="#1c1c1c">
-        <Label Grid.Row="1" Grid.Column="1" Text="Drives:" FontSize="14" TextColor="LightGrey"/>
+    <Grid ColumnDefinitions="0.6*, 0.4*" BackgroundColor="#1c1c1c">
+        
+        <!-- Drives -->
+        <VerticalStackLayout Padding="20, 20" Spacing="10" Grid.Column="0" HorizontalOptions="Center">
+            <Label Grid.Row="1" Grid.Column="1" Text="Drives:" FontSize="14" TextColor="LightGrey"/>
 
-        <CollectionView Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-            <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>E:    |   Samsung     |   SSD   | FAT-32 |   97.56 / 512 GB used</x:String>
-                    <x:String>D:    |   WDBlack     |   SSD   | FAT-32 |    7.56 / 512 GB used</x:String>
-                    <x:String>C:    |   SeaGate     |   HDD   | FAT-32 |   2.66 / 4.00 TB used</x:String>
-                </x:Array>
-            </CollectionView.ItemsSource>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="0,5">
-                        <Frame Background="#1F1F1F" HeightRequest="34" Padding="5, 5">
-                            <Label Text="{Binding .}" FontSize="14" TextColor="LightGrey" />
-                        </Frame>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+            <CollectionView x:Name="collectionView" Grid.Row="2" Grid.Column="1" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="0,8">
+                            <Frame Background="#1F1F1F" HeightRequest="38" Padding="20, 5">
+                                    
+                                <Label Text="{Binding ItemLabel}" FontSize="15" TextColor="LightGrey"  FontAttributes="Bold"/>
+ 
+                            </Frame>
+                            <Button IsVisible="False"/>
+                            
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
 
+        <!-- Collective drive information -->
+        <VerticalStackLayout Padding="5, 5" Spacing="10" Grid.Column="1" HorizontalOptions="Center">
+            <micro:ChartView x:Name="chartView" HeightRequest="300" WidthRequest="400"/>
 
-        </CollectionView>
-
-    </VerticalStackLayout>
-    
-    <!--
-    <Grid RowDefinitions="0.05*, 0.05*, 0.85*, 0.05*"
-              ColumnDefinitions="0.05*, 0.45*, 0.45*, 0.05*">
-
-        <Label Grid.Row="1" Grid.Column="1" Text="Drives:" FontSize="14" TextColor="LightGrey"/>
-
-        <CollectionView Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-            <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>E:    |   Samsung     |   SSD   | FAT-32 |   97.56 / 512 GB used</x:String>
-                    <x:String>D:    |   WDBlack     |   SSD   | FAT-32 |    7.56 / 512 GB used</x:String>
-                    <x:String>C:    |   SeaGate     |   HDD   | FAT-32 |   2.66 / 4.00 TB used</x:String>
-                </x:Array>
-            </CollectionView.ItemsSource>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="0,5">
-                        <Frame Background="#1F1F1F" HeightRequest="34" Padding="5, 5">
-                            <Label Text="{Binding .}" FontSize="14" TextColor="LightGrey" />
-                        </Frame>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-
-
-        </CollectionView>
-
+        </VerticalStackLayout>
     </Grid>
-    -->
-
 
 </ContentPage>
    
