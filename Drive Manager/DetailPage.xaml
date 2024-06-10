@@ -2,13 +2,59 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+         xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
          x:Class="Drive_Manager.DetailPage"
+         Title="Detail"
          Shell.TitleColor="LightGray"
          Shell.BackgroundColor="#1c1c1c">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid ColumnDefinitions="0.5*, 0.5*" BackgroundColor="#1c1c1c">
+        <!-- Detailed Information -->
+        <VerticalStackLayout Padding="20" Spacing="10" Grid.Column="0">
+            <Label Grid.Column="0" Text="Drive Information:" FontSize="16" TextColor="LightGrey" FontAttributes="Bold"/>
+            <Grid ColumnDefinitions="0.7*, 0.3*">
+                <Label Grid.Column="0" Text="Letter:" TextColor="LightGrey"/>
+                <Label Grid.Column="1" x:Name="driveLetter" Text="{Binding}" TextColor="LightGrey"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="0.7*, 0.3*">
+                <Label Grid.Column="0" Text="Name:" TextColor="LightGrey"/>
+                <Label Grid.Column="1" x:Name="driveLabel" Text="{Binding}" TextColor="LightGrey"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="0.7*, 0.3*">
+                <Label Grid.Column="0" Text="Type:" TextColor="LightGrey"/>
+                <Label Grid.Column="1" x:Name="driveType" Text="{Binding}" TextColor="LightGrey"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="0.7*, 0.3*">
+                <Label Grid.Column="0" Text="Format:" TextColor="LightGrey"/>
+                <Label Grid.Column="1" x:Name="driveFormat" Text="{Binding}" TextColor="LightGrey"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="0.7*, 0.3*">
+                <Label Grid.Column="0" Text="Used Storage:" TextColor="LightGrey"/>
+                <Label Grid.Column="1" x:Name="usedStorage" Text="{Binding}" TextColor="LightGrey"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="0.7*, 0.3*">
+                <Label Grid.Column="0" Text="Available Storage:" TextColor="LightGrey"/>
+                <Label Grid.Column="1" x:Name="availStorage" Text="{Binding}" TextColor="LightGrey"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="0.7*, 0.3*">
+                <Label Grid.Column="0" Text="Total Storage:" TextColor="LightGrey"/>
+                <Label Grid.Column="1" x:Name="totalStorage" Text="{Binding}" TextColor="LightGrey"/>
+            </Grid>
+
+        </VerticalStackLayout>
+        
+        <!-- Charts -->
+        <VerticalStackLayout Padding="5, 5" Spacing="10" Grid.Column="1" HorizontalOptions="Center">
+            <micro:ChartView x:Name="chartView" HeightRequest="300" WidthRequest="400"/>
+        </VerticalStackLayout>
+
+
+
+    </Grid>
 </ContentPage>

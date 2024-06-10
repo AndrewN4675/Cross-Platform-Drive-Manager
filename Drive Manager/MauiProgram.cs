@@ -1,4 +1,4 @@
-﻿using Drive_Manager.Models;
+﻿using Drive_Manager.DriveUtil;
 using Microsoft.Extensions.Logging;
 using Microcharts.Maui;
 
@@ -21,9 +21,6 @@ namespace Drive_Manager
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
-            builder.Services.AddTransient<DetailPage>();
-            builder.Services.AddTransient<DetailModel>();
 
             return builder.Build();
         }
