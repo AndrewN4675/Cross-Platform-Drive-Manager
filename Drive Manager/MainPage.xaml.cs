@@ -1,5 +1,6 @@
 ﻿using Drive_Manager.DriveUtil;
 using Microcharts;
+using Microsoft.Maui.Controls;
 using SkiaSharp;
 
 namespace Drive_Manager
@@ -22,7 +23,23 @@ namespace Drive_Manager
             RetrieveDrives();
             collectionView.ItemsSource = this.Drives;
             GenerateChart();
+
         }
+
+        ~MainPage() {
+            if(this.Drives != null)
+            {
+                this.Drives.Clear();
+                this.Drives = null;
+            }   
+            if(this.Entries != null)
+            {
+                this.Entries.Clear();
+                this.Entries = null;
+            }
+        
+        }
+
 
         private void RetrieveDrives()
         {
@@ -75,7 +92,7 @@ namespace Drive_Manager
 
         private async void DetailedViewButtonClicked(object sender, EventArgs e)
         {
-            Button ?button = sender as Button;
+            Button? button = sender as Button;
             if (button != null)
             {
                 await Navigation.PushAsync(new DetailPage((Drive)button.CommandParameter), true);

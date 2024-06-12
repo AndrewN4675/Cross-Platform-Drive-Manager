@@ -8,7 +8,7 @@
          Shell.TitleColor="LightGray"
          Shell.BackgroundColor="#1c1c1c">
 
-    <Grid ColumnDefinitions="0.5*, 0.5*" BackgroundColor="#1c1c1c">
+    <Grid ColumnDefinitions="0.6*, 0.4*" BackgroundColor="#1c1c1c">
         <!-- Detailed Information -->
         <VerticalStackLayout Padding="20" Spacing="10" Grid.Column="0">
             <Label Grid.Column="0" Text="Drive Information:" FontSize="16" TextColor="LightGrey" FontAttributes="Bold"/>
@@ -51,7 +51,9 @@
         
         <!-- Charts -->
         <VerticalStackLayout Padding="5, 5" Spacing="10" Grid.Column="1" HorizontalOptions="Center">
-            <micro:ChartView x:Name="chartView" HeightRequest="300" WidthRequest="400"/>
+            <micro:ChartView x:Name="chartView" HeightRequest="250" WidthRequest="350"/>
+            <Button Text="Show Detail" Clicked="StorageDetailButtonClicked"/>
+
         </VerticalStackLayout>
 
 

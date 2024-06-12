@@ -16,7 +16,7 @@ namespace Drive_Manager.DriveUtil
             this.SpaceAvailable = this.BytesToGigabytes(d.TotalFreeSpace);
             this.SpaceUsed = this.TotalSize - this.SpaceAvailable;
             this.ItemLabel = this.Letter + ":    " + this.Label + "     " 
-                + this.SpaceUsed.ToString("#.##") + " / " + this.TotalSize.ToString("#.##") + " GB used";
+                + this.SpaceUsed.ToString("#,##0.##") + " / " + this.TotalSize.ToString("#,##0.##") + " GB used";
         }
 
         public char Letter { get; }//drive letter
