@@ -9,10 +9,11 @@
     <Grid ColumnDefinitions="0.6*, 0.4*" BackgroundColor="#1c1c1c">
         
         <!-- Drives -->
-        <VerticalStackLayout Padding="20" Spacing="10" Grid.Column="0" HorizontalOptions="Center">
-            <Label Grid.Column="1" Text="Drives:" FontSize="16" TextColor="LightGrey" FontAttributes="Bold"/>
+        <Grid RowDefinitions="Auto, *" Grid.Column="0" Padding="20">
+            
+            <Label Grid.Column="1" Grid.Row="0" Text="Drives:" FontSize="16" TextColor="LightGrey" FontAttributes="Bold"/>
 
-            <CollectionView x:Name="collectionView" Grid.Row="2" Grid.Column="1" >
+            <CollectionView x:Name="collectionView" Grid.Row="1">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="0,5">
@@ -25,7 +26,7 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </VerticalStackLayout>
+        </Grid>
 
         <!-- Collective drive information -->
         <VerticalStackLayout Padding="5, 5" Spacing="10" Grid.Column="1" HorizontalOptions="Center">

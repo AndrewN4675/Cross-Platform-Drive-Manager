@@ -1,6 +1,5 @@
 ﻿using Drive_Manager.DriveUtil;
 using Microcharts;
-using Microsoft.Maui.Controls;
 using SkiaSharp;
 
 namespace Drive_Manager
