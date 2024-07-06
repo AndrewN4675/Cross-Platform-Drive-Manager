@@ -52,7 +52,6 @@
         <!-- Charts -->
         <VerticalStackLayout Padding="5, 5" Spacing="10" Grid.Column="1" HorizontalOptions="Center">
             <micro:ChartView x:Name="chartView" HeightRequest="250" WidthRequest="350"/>
-            <Button Text="Show Detail" Clicked="StorageDetailButtonClicked"/>
 
         </VerticalStackLayout>
 
